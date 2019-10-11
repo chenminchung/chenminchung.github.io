@@ -15,7 +15,8 @@
 
 		<script type="module">
 
-			import * as THREE from './build/three.module.js';
+			// import * as THREE from './build/three.module.js';
+			import * as THREE from "https://raw.githubusercontent.com/chenminchung/chenminchung.github.io/master/LoadJSON/build/three.module.js" ;
 
 			var container;
 
@@ -51,10 +52,15 @@
 				scene.add( directionalLight );
 
 				// BEGIN Clara.io JSON loader code
-				var objectLoader = new THREE.ObjectLoader();
-				objectLoader.load( "./json/teapot-claraio.json", function ( obj ) {
-
-				 	scene.add( obj );
+				var loader = new THREE.JSONLoader();
+				// loadfile="./json/teapot-claraio.json" ;
+				// loadfile = "./json/fish.json" ;
+				loadfile = "https://raw.githubusercontent.com/chenminchung/chenminchung.github.io/master/LoadJSON/json/fish.json"
+				// var loadfile = "https://raw.githubusercontent.com/chenminchung/chenminchung.github.io/master/LoadJSON/json/teapot-claraio.json"
+				
+				loader.load( loadfile , function ( geometry, materials ) {
+    				var mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
+				 	scene.add( mesh );
 
 				} );
 				// END Clara.io JSON loader code

@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "file": "${workspaceFolder}/webgl_loader_json_fish.html"
+            "file": "${workspaceFolder}/webgl_loader_json_claraio.html"
         }
     ]
 }
